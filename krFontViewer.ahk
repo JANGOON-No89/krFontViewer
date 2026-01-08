@@ -56,7 +56,7 @@ while (wb.readyState != 4 || wb.busy)
 	Sleep, -1
 doc := wb.doc, ComObjConnect(doc, wEvent)
 for i in Fonts.1
-	t .= StrReplace(StrReplace(table, "$1", i), "$2", Edit2)
+	t .= StrReplace(StrReplace(StrReplace(table, "$1", i), "$2", Edit2), "$3", Edit1)
 wb.Document.write(body)
 , wb.document.getElementById("item-container").innerHTML := t
 , wb.document.getElementById("buttonTrigger").click()
@@ -164,7 +164,7 @@ Switch Task
 		GuiControlGet, v, , Button2
 		t := ""
 		for i in Fonts[v]
-			t .= StrReplace(StrReplace(table, "$1", i), "$2", Edit2 ? Edit2 : "악역영애 갤러리")
+			t .= StrReplace(StrReplace(StrReplace(table, "$1", i), "$2", Edit2 ? Edit2 : "악역영애 갤러리"), "$3", Edit1)
 		wb.document.getElementById("item-container").innerHTML := t
 		, wb.document.getElementById("buttonTrigger").click()
 }
@@ -337,7 +337,7 @@ table=
 <div class="item-unit">
 	<div class="item-table"><div class="item-row">
 		<div class="label"><div class="inner-box" onclick="clipSet(this);">$1</div></div>
-		<div class="value"><div class="inner-box preview" style="font-size: 26pt; font-family: '$1'";>$2</div></div>
+		<div class="value"><div class="inner-box preview" style="font-size: $3pt; font-family: '$1'";>$2</div></div>
 	</div></div>
 </div>
 
