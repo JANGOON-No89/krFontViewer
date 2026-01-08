@@ -102,6 +102,7 @@ class wEvent
 				if (toolCheck(hAi, eAi, el))
 					el.SetValue(v)
 				else {
+					Clipboard := v
 					MsgBox, 48, Announce, % "Ai 툴을 찾을 수 없습니다. 클립보드에 복사합니다."
 					onAi := false
 					Gui, Font, cBlack
